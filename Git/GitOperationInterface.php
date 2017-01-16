@@ -4,7 +4,9 @@ namespace Weysan\Phpclg\Git;
 
 interface GitOperationInterface
 {
-    public function getParameters();
+    public function getCommandParameters();
 
-    public function getOperation();
+    public function getCommandOperation();
+
+    public function getCommandValue();
 }

@@ -1,5 +1,7 @@
 <?php
-namespace Weysan\Phpclg\Git;
+namespace Weysan\Phpclg\Git\Operation;
+
+use Weysan\Phpclg\Git\GitOperationInterface;
 
 
 class Log implements GitOperationInterface
@@ -10,22 +12,29 @@ class Log implements GitOperationInterface
 
     protected $parameters = array();
 
+    const COMMAND_OPERATION_NAME = "log";
+
     /**
      * Get the git operation to construct the git CLI
      * @return string
      */
-    public function getOperation()
+    public function getCommandOperation()
     {
-        return "log";
+        return self::COMMAND_OPERATION_NAME;
     }
 
     /**
      * Get alle the request parameters
      * @return array
      */
-    public function getParameters()
+    public function getCommandParameters()
     {
-        return array();
+        return $this->parameters;
+    }
+
+    public function getCommandValue()
+    {
+        return $this->tagFrom . ".." . $this->tagTo;
     }
 
     /**
