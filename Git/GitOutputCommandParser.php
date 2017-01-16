@@ -31,7 +31,7 @@ class GitOutputCommandParser
             $lines = explode("\n", $this->output);
             throw new GitCommandException($lines[0]);
         }
-
+        var_dump($this->output);
         return $this;
     }
 }
