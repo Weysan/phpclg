@@ -10,6 +10,9 @@ class GitOutputCommandParser
 {
     protected $output;
 
+    /**
+     * @var Message[]
+     */
     protected $commits;
 
     public function __construct($output)
@@ -40,6 +43,10 @@ class GitOutputCommandParser
         return $this;
     }
 
+    /**
+     * parse the output into a collection of Commits Message
+     * @return $this
+     */
     protected function parseCommitMessages()
     {
         $output = explode("\n", $this->output);
@@ -69,5 +76,13 @@ class GitOutputCommandParser
         }
 
         return $this;
+    }
+
+    /**
+     * @return Message[]
+     */
+    public function getCommits()
+    {
+        return $this->commits;
     }
 }

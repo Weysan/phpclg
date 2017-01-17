@@ -27,4 +27,4 @@ $git_log_cmd = \Weysan\Phpclg\Git\GitCommand::createCommand(
 $return = \Weysan\Phpclg\Git\GitCommand::exec($git_log_cmd);
 
 $parser = new \Weysan\Phpclg\Git\GitOutputCommandParser($return);
-$parser->parse();
+$commits = $parser->parse()->getCommits();
