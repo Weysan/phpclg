@@ -17,14 +17,18 @@ $git_log_cmd = \Weysan\Phpclg\Git\GitCommand::createCommand(
     \Weysan\Phpclg\Git\GitCommand::getOperation(
         \Weysan\Phpclg\Git\Operation\Log::COMMAND_OPERATION_NAME,
         array(
-            //'setMergesOnly' => true,
+            'setMergesOnly' => true,
             'setFromTag' => isset($request_options['f'])?$request_options['f']:$request_options['from'],
             'setToTag' => isset($request_options['t'])?$request_options['t']:$request_options['to']
         )
     )
 );
 
-$return = \Weysan\Phpclg\Git\GitCommand::exec($git_log_cmd);
-
-$parser = new \Weysan\Phpclg\Git\GitOutputCommandParser($return);
+$parser = new \Weysan\Phpclg\Git\GitOutputCommandParser(
+    \Weysan\Phpclg\Git\GitCommand::exec($git_log_cmd)
+);
 $commits = $parser->parse()->getCommits();
+
+foreach ($commits as $commit) {
+    var_dump((string)$commit);
+}

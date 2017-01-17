@@ -4,16 +4,16 @@ namespace Weysan\Phpclg\Git;
 
 use Weysan\Phpclg\Git\Exception\GitCommandException;
 use Weysan\Phpclg\Git\Exception\GitOutputMissingException;
-use Weysan\Phpclg\Git\Parser\Message;
+use Weysan\Phpclg\Git\Parser\Commit;
 
 class GitOutputCommandParser
 {
     protected $output;
 
     /**
-     * @var Message[]
+     * @var Commit[]
      */
-    protected $commits;
+    protected $commits = array();
 
     public function __construct($output)
     {
@@ -52,34 +52,34 @@ class GitOutputCommandParser
         $output = explode("\n", $this->output);
 
         $commit = array();
+
         foreach($output as $line){
             if(strpos($line, 'commit')===0){
                 if(!empty($commit)){
-                    array_push($history, $commit);
+                    array_push($this->commits, new Commit($commit));
                     $commit = array();
                 }
-                $commit['hash']   = substr($line, strlen('commit'));
+                $commit['hash']   = trim(substr($line, strlen('commit')));
             }
             else if(strpos($line, 'Author')===0){
-                $commit['author'] = substr($line, strlen('Author:'));
+                $commit['author'] = trim(substr($line, strlen('Author:')));
             }
             else if(strpos($line, 'Date')===0){
-                $commit['date']   = substr($line, strlen('Date:'));
+                $commit['date']   = trim(substr($line, strlen('Date:')));
             }
             else{
-                $commit['message']  .= $line;
+                $commit['message'][] = trim($line);
             }
-
-            if (!empty($commit)) {
-                $this->commits[] = new Message($commit);
-            }
+        }
+        if (!empty($commit)) {
+            array_push($this->commits, new Commit($commit));
         }
 
         return $this;
     }
 
     /**
-     * @return Message[]
+     * @return Commit[]
      */
     public function getCommits()
     {
