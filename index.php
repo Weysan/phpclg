@@ -29,6 +29,4 @@ $parser = new \Weysan\Phpclg\Git\GitOutputCommandParser(
 );
 $commits = $parser->parse()->getCommits();
 
-foreach ($commits as $commit) {
-    var_dump((string)$commit);
-}
+$changelog_manager = \Weysan\Phpclg\Markdown\MarkdownFile::getManager('./CHANGELOG.md');
