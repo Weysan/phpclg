@@ -18,6 +18,21 @@
             </DockerContainerSettings>
           </value>
         </entry>
+        <entry key="d27e5030-bd8e-44e6-8e6b-c67c95a32a05">
+          <value>
+            <DockerContainerSettings>
+              <option name="version" value="1" />
+              <option name="volumeBindings">
+                <list>
+                  <DockerVolumeBindingImpl>
+                    <option name="containerPath" value="/var/www/html/phpclg" />
+                    <option name="hostPath" value="$PROJECT_DIR$" />
+                  </DockerVolumeBindingImpl>
+                </list>
+              </option>
+            </DockerContainerSettings>
+          </value>
+        </entry>
       </map>
     </list>
   </component>

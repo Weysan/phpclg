@@ -65,6 +65,17 @@ class MarkdownFile
     }
 
     /**
+     * Add a markdown content
+     * @param MarkdownContentPartInterface $markdownContentPart
+     * @return $this
+     */
+    public function addContent(MarkdownContentPartInterface $markdownContentPart)
+    {
+        $this->file_part_contents[] = $markdownContentPart;
+        return $this;
+    }
+
+    /**
      * Get the instance
      * @param $filename
      * @return MarkdownFile
