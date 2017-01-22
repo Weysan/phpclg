@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f3e293c-8d6b-480c-9818-49d4b3c3af84" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/remote-mappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Markdown/MarkdownContentPartInterface.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/php-docker-settings.xml" afterPath="$PROJECT_DIR$/.idea/php-docker-settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Markdown/ContentPart/TitlePart.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Markdown/MarkdownFile.php" afterPath="$PROJECT_DIR$/Markdown/MarkdownFile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/Markdown/MarkdownFileTest.php" afterPath="$PROJECT_DIR$/Tests/Markdown/MarkdownFileTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,34 +18,12 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
+      <file leaf-file-name="TitlePart.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Markdown/ContentPart/TitlePart.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="3" lean-forward="false" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+            <state relative-caret-position="-66">
+              <caret line="22" column="25" lean-forward="false" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MarkdownFile.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Markdown/MarkdownFile.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="67" column="29" lean-forward="false" selection-start-line="67" selection-start-column="29" selection-end-line="67" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MarkdownFileTest.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Tests/Markdown/MarkdownFileTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="582">
-              <caret line="81" column="96" lean-forward="false" selection-start-line="81" selection-start-column="96" selection-end-line="81" selection-end-column="96" />
-              <folding>
-                <element signature="e#47#78#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -80,6 +53,7 @@
         <option value="$PROJECT_DIR$/Markdown/MarkdownContentPartInterface.php" />
         <option value="$PROJECT_DIR$/Markdown/MarkdownFile.php" />
         <option value="$PROJECT_DIR$/Tests/Markdown/MarkdownFileTest.php" />
+        <option value="$PROJECT_DIR$/Markdown/ContentPart/TitlePart.php" />
       </list>
     </option>
   </component>
@@ -135,10 +109,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Tests" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Markdown" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -154,6 +124,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Markdown" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ContentPart" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -243,12 +217,12 @@
       <workItem from="1484582345830" duration="1462000" />
       <workItem from="1484588893327" duration="3929000" />
       <workItem from="1484650063410" duration="4007000" />
-      <workItem from="1485095351220" duration="4566000" />
+      <workItem from="1485095351220" duration="5271000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13964000" />
+    <option name="totallyTimeSpent" value="14669000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1535" height="876" extended-state="6" />
@@ -424,26 +398,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="3" lean-forward="false" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Markdown/MarkdownContentPartInterface.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="57" lean-forward="false" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Markdown/MarkdownFile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="67" column="29" lean-forward="false" selection-start-line="67" selection-start-column="29" selection-end-line="67" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -461,11 +419,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tests/Markdown/MarkdownFileTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="582">
-          <caret line="81" column="96" lean-forward="false" selection-start-line="81" selection-start-column="96" selection-end-line="81" selection-end-column="96" />
+        <state relative-caret-position="1062">
+          <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding>
             <element signature="e#47#78#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Markdown/MarkdownFile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="67" column="29" lean-forward="false" selection-start-line="67" selection-start-column="29" selection-end-line="67" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="3" lean-forward="false" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Markdown/ContentPart/TitlePart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-66">
+          <caret line="22" column="25" lean-forward="false" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
