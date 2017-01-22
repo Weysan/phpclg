@@ -1,0 +1,15 @@
+before_script:
+    # Run ssh-agent and add the key
+    - echo "$SSH_PRIVATE_KEY" > /tmp/pkey
+    - chmod 400 /tmp/pkey
+    - eval $(ssh-agent -s) && ssh-add /tmp/pkey
+    # Disable host key checking
+    - mkdir -p ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - composer install
+
+php70:
+  image: weysan/php7-dev
+  script:
+    # Run tests
+    - php vendor/bin/phpunit --bootstrap=autoload.php --coverage-text --colors=never Tests/
