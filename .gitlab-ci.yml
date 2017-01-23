@@ -12,4 +12,4 @@ php70:
   image: weysan/php7-dev
   script:
     # Run tests
-    - php vendor/bin/phpunit --bootstrap=autoload.php --coverage-text --colors=never Tests/
+    - php vendor/bin/phpunit --coverage-text --colors=never
