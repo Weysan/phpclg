@@ -39,10 +39,22 @@ class MarkdownFile
      */
     public function save()
     {
+        $this->cleanFileContent();
+
         foreach ($this->file_part_contents as $part_content) {
             fputs($this->resource, (string)$part_content);
         }
 
+        return $this;
+    }
+
+    /**
+     * Erase all content
+     * @return $this
+     */
+    public function cleanFileContent()
+    {
+        ftruncate($this->resource, 0);
         return $this;
     }
 

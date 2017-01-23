@@ -29,4 +29,20 @@ $parser = new \Weysan\Phpclg\Git\GitOutputCommandParser(
 );
 $commits = $parser->parse()->getCommits();
 
-$changelog_manager = \Weysan\Phpclg\Markdown\MarkdownFile::getManager('./CHANGELOG.md');
+if ($commits) {
+    $changelog_manager = \Weysan\Phpclg\Markdown\MarkdownFile::getManager('./CHANGELOG.md');
+
+    $title = new \Weysan\Phpclg\Markdown\ContentPart\TitlePart();
+    $title->setContent("Changelog");
+
+    $changelog_manager->addContent($title);
+
+    foreach ($commits as $index => $commit) {
+        $listPart = new \Weysan\Phpclg\Markdown\ContentPart\ListItemPart();
+        $listPart->setContent("titre $index");
+        $listPart->setDescription($commit->getMessage());
+        $changelog_manager->addContent($listPart);
+    }
+
+    $changelog_manager->save();
+}
