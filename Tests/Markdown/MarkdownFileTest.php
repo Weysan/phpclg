@@ -9,6 +9,15 @@ class MarkdownFileTest extends TestCase
 {
 
     const BASE_TEST_FILES_DIR = "/testfiles";
+
+
+    public function setUp()
+    {
+        if (!is_dir(__DIR__ . self::BASE_TEST_FILES_DIR)) {
+            mkdir(__DIR__ . self::BASE_TEST_FILES_DIR);
+        }
+    }
+
     /**
      * remove all files from the test directory
      */
@@ -21,6 +30,8 @@ class MarkdownFileTest extends TestCase
                 unlink(__DIR__ . self::BASE_TEST_FILES_DIR . '/' . $file);
             }
         }
+
+        rmdir(__DIR__ . self::BASE_TEST_FILES_DIR);
     }
 
     /**
