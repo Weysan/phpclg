@@ -12,7 +12,8 @@
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./</directory>
+            <directory suffix=".php">./Git</directory>
+            <directory suffix=".php">./Markdown</directory>
         </whitelist>
         <blacklist>
             <directory>./vendor</directory>
