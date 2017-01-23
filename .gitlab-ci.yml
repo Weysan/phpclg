@@ -11,6 +11,5 @@ before_script:
 php70:
   image: weysan/php7-dev
   script:
-    - find . -iname "*.php" -exec php -l {} \; | grep -i "Errors.parsing"
     # Run tests
     - php vendor/bin/phpunit --coverage-text --colors=never
