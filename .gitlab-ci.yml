@@ -11,5 +11,6 @@ before_script:
 php70:
   image: weysan/php7-dev
   script:
+    - vendor/bin/phplint ./ --exclude "vendor"
     # Run tests
     - php vendor/bin/phpunit --coverage-text --colors=never
