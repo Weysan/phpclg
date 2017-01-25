@@ -26,5 +26,6 @@ class ListItemPart implements MarkdownContentPartInterface
         if (!empty($this->content) && !empty($this->description)) {
             return "- **" . $this->content . "** \n\n" . $this->description . "\n\n";
         }
+        return "";
     }
 }

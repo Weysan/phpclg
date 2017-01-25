@@ -4,6 +4,7 @@ namespace Weysan\Phpclg\Git;
 
 use Weysan\Phpclg\Git\Exception\GitOperationNotFoundException;
 use Weysan\Phpclg\Git\Operation\Log;
+use Weysan\Phpclg\Git\Operation\ShowRefTags;
 
 class GitCommand
 {
@@ -37,6 +38,9 @@ class GitCommand
         switch ($operation) {
             case Log::COMMAND_OPERATION_NAME:
                 $operation = new Log();
+                break;
+            case ShowRefTags::COMMAND_OPERATION_NAME:
+                $operation = new ShowRefTags();
                 break;
             default:
                 throw new GitOperationNotFoundException("git $operation not implemented.");
