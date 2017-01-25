@@ -37,11 +37,19 @@ if ($commits) {
 
     $changelog_manager->addContent($title);
 
+    $tag1 = new \Weysan\Phpclg\Markdown\ContentPart\TitlePart();
+    $tag1->setTitleLevel(\Weysan\Phpclg\Markdown\ContentPart\TitlePart::SUB_TITLE_LEVEL);
+    $tag1->setContent(isset($request_options['t'])?$request_options['t']:$request_options['to']);
+
+    $changelog_manager->addContent($tag1);
+
     foreach ($commits as $index => $commit) {
-        $listPart = new \Weysan\Phpclg\Markdown\ContentPart\ListItemPart();
-        $listPart->setContent("titre $index");
-        $listPart->setDescription($commit->getMessage());
-        $changelog_manager->addContent($listPart);
+        if ($commit->getMergeTitle()) {
+            $listPart = new \Weysan\Phpclg\Markdown\ContentPart\ListItemPart();
+            $listPart->setContent($commit->getMergeTitle());
+            $listPart->setDescription($commit->getMergeDescription());
+            $changelog_manager->addContent($listPart);
+        }
     }
 
     $changelog_manager->save();

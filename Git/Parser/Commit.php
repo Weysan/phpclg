@@ -23,7 +23,11 @@ class Commit
         }
 
         if (isset($commit['message'])) {
-            $this->message = $commit['message'];
+            $this->message = array_values(
+                array_filter($commit['message'], function ($value) {
+                    return (!empty($value));
+                })
+            );
         }
 
         if (isset($commit['author'])) {
@@ -65,6 +69,47 @@ class Commit
     }
 
     /**
+     * Get the merge request title
+     * @return string|false
+     */
+    public function getMergeTitle()
+    {
+        if (isset($this->message[2])) {
+            return $this->message[2];
+        }
+
+        return false;
+    }
+
+    /**
+     * Get the merge message description
+     * @return string
+     */
+    public function getMergeDescription()
+    {
+        if (count($this->message) <= 3) {
+            return false;
+        }
+
+        $merge_message = join (
+            "\n",
+            array_slice(
+                $this->message,
+                3,
+                (count($this->message) - 2) - 2
+            )
+        );
+
+        return $merge_message;
+    }
+
+    public function parseMergeMessage()
+    {
+        var_dump($this->message);
+        exit;
+    }
+
+    /**
      * Get the author email
      * @return string
      */
@@ -73,6 +118,10 @@ class Commit
         return $this->author_email;
     }
 
+    /**
+     * Re construct the Commit log message
+     * @return string
+     */
     public function __toString()
     {
         $message = "commit " . $this->getHash() . "\n";
