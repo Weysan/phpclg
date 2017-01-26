@@ -23,9 +23,20 @@ class ListItemPart implements MarkdownContentPartInterface
 
     public function __toString()
     {
-        if (!empty($this->content) && !empty($this->description)) {
-            return "- **" . $this->content . "** \n\n" . $this->description . "\n\n";
+        $string = "-";
+
+        if (!empty($this->content)) {
+            $string .= " **" . $this->content . "** \n\n";
         }
-        return "";
+
+        if (!empty($this->description)) {
+            $string .= $this->description . "\n\n";
+        }
+
+        if ("-" === $string) {
+            $string .= " n/a";
+        }
+
+        return $string;
     }
 }

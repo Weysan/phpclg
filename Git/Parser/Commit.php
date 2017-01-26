@@ -14,6 +14,8 @@ class Commit
 
     protected $date;
 
+    protected $merge;
+
     const GIT_COMMIT_MESSAGE_DATE_FORMAT = "D M j H:m:s Y O";
 
     public function __construct(array $commit)
@@ -38,6 +40,10 @@ class Commit
 
         if (isset($commit['date'])) {
             $this->date = \Datetime::createFromFormat(self::GIT_COMMIT_MESSAGE_DATE_FORMAT, $commit['date']);
+        }
+
+        if (isset($commit['merge'])) {
+            $this->merge = $commit['merge'];
         }
     }
 
@@ -74,8 +80,8 @@ class Commit
      */
     public function getMergeTitle()
     {
-        if (isset($this->message[2])) {
-            return $this->message[2];
+        if (isset($this->message[1])) {
+            return $this->message[1];
         }
 
         return false;
@@ -95,8 +101,8 @@ class Commit
             "\n",
             array_slice(
                 $this->message,
-                3,
-                (count($this->message) - 2) - 2
+                2,
+                (count($this->message) - 2) - 1
             )
         );
 
@@ -130,5 +136,17 @@ class Commit
         $message .= $this->getMessage() . "\n";
 
         return $message;
+    }
+
+    /**
+     * Check if the current commit is a merge or not.
+     * @return bool
+     */
+    public function isMerge()
+    {
+        if (isset($this->merge) && !empty($this->merge)) {
+            return true;
+        }
+        return false;
     }
 }

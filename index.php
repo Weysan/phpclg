@@ -18,6 +18,7 @@ $git_log_cmd = \Weysan\Phpclg\Git\GitCommand::createCommand(
         \Weysan\Phpclg\Git\Operation\Log::COMMAND_OPERATION_NAME,
         array(
             'setMergesOnly' => true,
+            'setTags' => true,
             'setFromTag' => isset($request_options['f'])?$request_options['f']:$request_options['from'],
             'setToTag' => isset($request_options['t'])?$request_options['t']:$request_options['to']
         )
@@ -69,7 +70,7 @@ if ($commits) {
             $changelog_manager->addContent($tag);
         }
 
-        if ($commit->getMergeTitle()) {
+        if ($commit->getMergeTitle() && $commit->isMerge()) {
             $listPart = new \Weysan\Phpclg\Markdown\ContentPart\ListItemPart();
             $listPart->setContent($commit->getMergeTitle());
             $listPart->setDescription($commit->getMergeDescription());

@@ -61,11 +61,14 @@ class GitOutputCommandParser
                 }
                 $commit['hash']   = trim(substr($line, strlen('commit')));
             }
-            else if(strpos($line, 'Author')===0){
+            elseif (strpos($line, 'Author')===0) {
                 $commit['author'] = trim(substr($line, strlen('Author:')));
             }
-            else if(strpos($line, 'Date')===0){
+            elseif (strpos($line, 'Date')===0) {
                 $commit['date']   = trim(substr($line, strlen('Date:')));
+            }
+            elseif (strpos($line, 'Merge')===0) {
+                $commit['merge']   = trim(substr($line, strlen('Merge:')));
             }
             else{
                 $commit['message'][] = trim($line);

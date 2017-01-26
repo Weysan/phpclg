@@ -34,7 +34,8 @@ class Log implements GitOperationInterface
 
     public function getCommandValue()
     {
-        return $this->tagFrom . ".." . $this->tagTo;
+        //return $this->tagFrom . ".." . $this->tagTo;
+        return "";
     }
 
     /**
@@ -67,6 +68,21 @@ class Log implements GitOperationInterface
             $this->parameters[] = "merges";
         } else {
             $key = array_search("merges", $this->parameters);
+            unset($this->parameters[$key]);
+        }
+        return $this;
+    }
+
+    /**
+     * @param bool $tags
+     * @return $this
+     */
+    public function setTags($tags = true)
+    {
+        if ($tags === true) {
+            $this->parameters[] = "tags";
+        } else {
+            $key = array_search("tags", $this->parameters);
             unset($this->parameters[$key]);
         }
         return $this;
