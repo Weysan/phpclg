@@ -93,7 +93,7 @@ class Commit
      */
     public function getMergeDescription()
     {
-        if (count($this->message) <= 3) {
+        if (count($this->message) <= 2) {
             return false;
         }
 
