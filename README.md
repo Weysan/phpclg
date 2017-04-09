@@ -1,5 +1,7 @@
 # PHP Changelog Generator (phpclg)
 
+[![Build Status](https://travis-ci.org/Weysan/phpclg.svg?branch=master)](https://travis-ci.org/Weysan/phpclg)
+
 That library will provide a simple tool to generate a changelog file for your projects.
 
 ## Installation
@@ -26,5 +28,5 @@ v2.1
 ~~~
 To generate a changelog file from tag `v1` to `v2` we will use :
 ~~~
-./vendor/bin/phpclg --dir=/path/to/te/project --from=v1 --to=v2
+./vendor/bin/phpclg --dir=/path/to/project --from=v1 --to=v2
 ~~~
