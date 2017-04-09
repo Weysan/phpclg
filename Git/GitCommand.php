@@ -1,7 +1,6 @@
 <?php
 namespace Weysan\Phpclg\Git;
 
-
 use Weysan\Phpclg\Git\Exception\GitOperationNotFoundException;
 use Weysan\Phpclg\Git\Operation\Log;
 use Weysan\Phpclg\Git\Operation\ShowRefTags;
@@ -10,9 +9,11 @@ class GitCommand
 {
     const GIT_COMMAND_EXECUTABLE = "git";
 
-    static public function createCommand(GitOperationInterface $gitOperation)
+    public static function createCommand(GitOperationInterface $gitOperation)
     {
-        return self::GIT_COMMAND_EXECUTABLE . " " . $gitOperation->getCommandOperation() . " " . $gitOperation->getCommandValue() . " --" . join(" --", $gitOperation->getCommandParameters());
+        return self::GIT_COMMAND_EXECUTABLE
+            . " " . $gitOperation->getCommandOperation() . " "
+            . $gitOperation->getCommandValue() . " --" . join(" --", $gitOperation->getCommandParameters());
     }
 
     /**
@@ -20,7 +21,7 @@ class GitCommand
      * @param string $cmd
      * @return mixed
      */
-    static public function exec($cmd)
+    public static function exec($cmd)
     {
         $output = shell_exec($cmd . " 2>&1");
         return $output;
@@ -33,7 +34,7 @@ class GitCommand
      * @return GitOperationInterface
      * @throws GitOperationNotFoundException
      */
-    static function getOperation($operation, array $parameters)
+    public static function getOperation($operation, array $parameters)
     {
         switch ($operation) {
             case Log::COMMAND_OPERATION_NAME:
