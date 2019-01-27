@@ -1,14 +1,13 @@
 <?php
 namespace Weysan\Phpclg\Markdown;
 
-
 class MarkdownFile
 {
 
     /**
      * @var MarkdownFile[]
      */
-    static protected $fileInstances = array();
+    protected static $fileInstances = array();
 
     protected $resource;
 
@@ -28,10 +27,12 @@ class MarkdownFile
     }
 
     protected function __clone()
-    {}
+    {
+    }
 
     protected function __wakeup()
-    {}
+    {
+    }
 
     /**
      * save the current file
@@ -92,7 +93,7 @@ class MarkdownFile
      * @param $filename
      * @return MarkdownFile
      */
-    static public function getManager($filename)
+    public static function getManager($filename)
     {
         if (!isset(self::$fileInstances[$filename])) {
             self::$fileInstances[$filename] = new MarkdownFile($filename);

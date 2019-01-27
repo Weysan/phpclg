@@ -3,7 +3,6 @@ namespace Weysan\Phpclg\Markdown\ContentPart;
 
 use Weysan\Phpclg\Markdown\MarkdownContentPartInterface;
 
-
 class TitlePart implements MarkdownContentPartInterface
 {
     protected $content;

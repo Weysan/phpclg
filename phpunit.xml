@@ -3,7 +3,6 @@
          xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.1/phpunit.xsd"
          backupGlobals="false"
          colors="true"
-         bootstrap="./autoload.php"
 >
     <testsuites>
         <testsuite name="PHP CHangelog Suite">
@@ -20,4 +19,7 @@
             <directory>./Tests</directory>
         </blacklist>
     </filter>
+    <logging>
+        <log type="coverage-clover" target="build/logs/clover.xml"/>
+    </logging>
 </phpunit>
