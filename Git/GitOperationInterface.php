@@ -1,7 +1,6 @@
 <?php
 namespace Weysan\Phpclg\Git;
 
-
 interface GitOperationInterface
 {
     public function getCommandParameters();

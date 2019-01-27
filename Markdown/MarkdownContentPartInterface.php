@@ -1,7 +1,6 @@
 <?php
 namespace Weysan\Phpclg\Markdown;
 
-
 interface MarkdownContentPartInterface
 {
     /**

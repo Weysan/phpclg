@@ -1,7 +1,6 @@
 <?php
 namespace Weysan\Phpclg\Git\Parser;
 
-
 class Commit
 {
     protected $hash;
@@ -97,7 +96,7 @@ class Commit
             return false;
         }
 
-        $merge_message = join (
+        $merge_message = join(
             "\n",
             array_slice(
                 $this->message,
@@ -107,12 +106,6 @@ class Commit
         );
 
         return $merge_message;
-    }
-
-    public function parseMergeMessage()
-    {
-        var_dump($this->message);
-        exit;
     }
 
     /**

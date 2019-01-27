@@ -1,7 +1,6 @@
 <?php
 namespace Weysan\Phpclg\Git\Parser;
 
-
 class TagsReference
 {
     protected $ref_tags = array();

@@ -1,7 +1,6 @@
 <?php
 namespace Weysan\Phpclg\Git;
 
-
 use Weysan\Phpclg\Git\Exception\GitCommandException;
 use Weysan\Phpclg\Git\Exception\GitOutputMissingException;
 use Weysan\Phpclg\Git\Parser\Commit;
@@ -53,24 +52,20 @@ class GitOutputCommandParser
 
         $commit = array();
 
-        foreach($output as $line){
-            if(strpos($line, 'commit')===0){
-                if(!empty($commit)){
+        foreach ($output as $line) {
+            if (strpos($line, 'commit')===0) {
+                if (!empty($commit)) {
                     array_push($this->commits, new Commit($commit));
                     $commit = array();
                 }
                 $commit['hash']   = trim(substr($line, strlen('commit')));
-            }
-            elseif (strpos($line, 'Author')===0) {
+            } elseif (strpos($line, 'Author')===0) {
                 $commit['author'] = trim(substr($line, strlen('Author:')));
-            }
-            elseif (strpos($line, 'Date')===0) {
+            } elseif (strpos($line, 'Date')===0) {
                 $commit['date']   = trim(substr($line, strlen('Date:')));
-            }
-            elseif (strpos($line, 'Merge')===0) {
+            } elseif (strpos($line, 'Merge')===0) {
                 $commit['merge']   = trim(substr($line, strlen('Merge:')));
-            }
-            else{
+            } else {
                 $commit['message'][] = trim($line);
             }
         }

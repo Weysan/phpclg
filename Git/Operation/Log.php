@@ -3,7 +3,6 @@ namespace Weysan\Phpclg\Git\Operation;
 
 use Weysan\Phpclg\Git\GitOperationInterface;
 
-
 class Log implements GitOperationInterface
 {
     protected $tagFrom;
@@ -34,7 +33,6 @@ class Log implements GitOperationInterface
 
     public function getCommandValue()
     {
-        //return $this->tagFrom . ".." . $this->tagTo;
         return "";
     }
 
